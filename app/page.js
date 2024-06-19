@@ -1,113 +1,123 @@
-import Image from "next/image";
+"use client";
+
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [loaded, setLoaded] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setDarkMode(prefersDarkScheme);
+    document.documentElement.classList.toggle('dark', prefersDarkScheme);
+    setLoaded(true);
+  }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle('dark');
+  };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "//embed.typeform.com/next/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
+    <div className={`${darkMode ? 'bg-black text-white' : 'bg-white text-black'} min-h-screen flex flex-col items-center`}>
+      <Head>
+        <title>Salawee - Get Paid Instantly</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </Head>
+      <header className="flex flex-wrap justify-between items-center w-full p-4 md:p-6">
+        <div className="text-2xl md:text-3xl font-bold">
+          <div className="h-[80px] lg:h-[150px]">
+            {darkMode ? <img src="/logo-dark.svg" alt="Salawee" className="h-full" /> : <img src="/logo-light.svg" alt="Salawee" className="h-full" />}
+          </div>
+        </div>
+        <div className="flex items-center space-x-2 md:space-x-4  md:mt-0">
+          <button onClick={toggleDarkMode} className="text-gray-500 hover:text-gray-800 dark:hover:text-gray-300">
+            {darkMode ? 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              
+            : 
+            
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+              </svg>
+            }
+          </button>
+          <span className="hidden md:inline">contact@salawee.com</span>
+          <button className="bg-black text-white py-2 px-3 md:px-4 rounded hover:bg-gray-800">Sign In</button>
+        </div>
+      </header>
+      <main className="text-center mt-8 md:mt-16 flex-1 flex flex-col items-center px-4">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold">
+          Experience Instant Payments Seamlessly
+        </h1>
+        <p className="text-base md:text-lg lg:text-xl mt-4">
+          Join Salawee and transform the way you handle transactions. Fast, reliable, and designed for your success.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+        <div className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          {/* <button className="bg-black text-white py-2 px-4 md:py-3 md:px-6 rounded-full flex items-center space-x-2 hover:bg-gray-800" data-tf-popup="01J0QMNVXNAJM9DXD86DPT2R35">
+            <span>Join Waitlist</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3H6a1 1 0 100 2h3v3a1 1 0 102 0v-3h3a1 1 0 100-2h-3V7z" clipRule="evenodd" />
+            </svg>
+          </button> */}
+          <div data-tf-live="01J0QMNVXNAJM9DXD86DPT2R35"></div>
+           <a className="bg-black text-white py-2 px-4 md:py-3 md:px-6 rounded-full flex items-center space-x-2 hover:bg-gray-800 cursor-pointer" href="mailto:contact@salawee.com" >
+            <span>Contact Us</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3H6a1 1 0 100 2h3v3a1 1 0 102 0v-3h3a1 1 0 100-2h-3V7z" clipRule="evenodd" />
+            </svg>
           </a>
+
+          {/* <button className="bg-brightYellow text-black py-2 px-4 md:py-3 md:px-6 rounded-full flex items-center space-x-2 hover:bg-yellow-400">
+            <span>Contact Us</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3H6a1 1 0 100 2h3v3a1 1 0 102 0v-3h3a1 1 0 100-2h-3V7z" clipRule="evenodd" />
+            </svg>
+          </button> */}
+        </div>
+      </main>
+      <div className="relative w-full h-64 flex justify-center items-end mb-16 px-4">
+        <div className="badges-container relative w-full h-full">
+          <div className={`flex justify-center mt-4 ${loaded ? 'animate-drop-4' : 'opacity-0'}`}>
+            <Badge text="Chinwe got paid ₦500,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="-10deg" />
+          </div>
+          <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-3' : 'opacity-0'}`}>
+            <Badge text="Bola got paid ₦200,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="15deg" />
+            <Badge text="Ade got paid ₦150,000" bgColor="bg-lightGrayish" textColor="text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="-5deg" />
+          </div>
+          <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-2' : 'opacity-0'}`}>
+            <Badge text="Ngozi got paid ₦300,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="10deg" />
+            <Badge text="Chidi got paid ₦100,000" bgColor="bg-brightYellow" textColor="text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="-15deg" />
+            <Badge text="Amaka got paid ₦400,000" bg="bg-oliveGreen" textColor="text-[12px] md:text-[18px] lg:text[20px] text-white" rotate="5deg" />
+          </div>
+          <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4  ${loaded ? 'animate-drop-1' : 'opacity-0'}`}>
+            <Badge text="Kemi got paid ₦600,000" bgColor="bg-brightYellow" textColor="text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="-10deg" />
+            <Badge text="Seyi got paid ₦250,000" bgColor="bg-oliveGreen" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="15deg" />
+            <Badge text="Tunde got paid ₦150,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="-5deg" />
+            <Badge text="Femi got paid ₦350,000" bgColor="bg-lightGrayish" textColor="hidden md:flex text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="10deg" />
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
+
+const Badge = ({ text, bgColor, textColor, rotate }) => {
+  return (
+    <div className={`badge ${bgColor} ${textColor} py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 my-2 rounded-lg shadow-lg opacity-0`} style={{ transform: `rotate(${rotate})` }}>
+      {text}
+    </div>
+  );
+};
+
