@@ -72,12 +72,7 @@ export default function Home() {
             </svg>
           </button> */}
           <div data-tf-live="01J0QMNVXNAJM9DXD86DPT2R35"></div>
-           <a className="bg-black text-white py-2 px-4 md:py-3 md:px-6 rounded-full flex items-center space-x-2 hover:bg-gray-800 cursor-pointer" href="mailto:contact@salawee.com" >
-            <span>Contact Us</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3H6a1 1 0 100 2h3v3a1 1 0 102 0v-3h3a1 1 0 100-2h-3V7z" clipRule="evenodd" />
-            </svg>
-          </a>
+         
 
           {/* <button className="bg-brightYellow text-black py-2 px-4 md:py-3 md:px-6 rounded-full flex items-center space-x-2 hover:bg-yellow-400">
             <span>Contact Us</span>
@@ -90,22 +85,22 @@ export default function Home() {
       <div className="relative w-full h-64 flex justify-center items-end mb-16 px-4">
         <div className="badges-container relative w-full h-full">
           <div className={`flex justify-center mt-4 ${loaded ? 'animate-drop-4' : 'opacity-0'}`}>
-            <Badge text="Chinwe got paid ₦500,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="-10deg" />
+            <Badge text="Chinwe got paid ₦500,000" bgColor="bg-black" textColor="text-white " rotate="-10deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-3' : 'opacity-0'}`}>
-            <Badge text="Bola got paid ₦200,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="15deg" />
-            <Badge text="Ade got paid ₦150,000" bgColor="bg-lightGrayish" textColor="text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="-5deg" />
+            <Badge text="Bola got paid ₦200,000" bgColor="bg-black" textColor="text-white " rotate="15deg" />
+            <Badge text="Ade got paid ₦150,000" bgColor="bg-lightGrayish" textColor="text-black " rotate="-5deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-2' : 'opacity-0'}`}>
-            <Badge text="Ngozi got paid ₦300,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="10deg" />
-            <Badge text="Chidi got paid ₦100,000" bgColor="bg-brightYellow" textColor="text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="-15deg" />
-            <Badge text="Amaka got paid ₦400,000" bg="bg-oliveGreen" textColor="text-[12px] md:text-[18px] lg:text[20px] text-white" rotate="5deg" />
+            <Badge text="Ngozi got paid ₦300,000" bgColor="bg-black" textColor="text-white " rotate="10deg" />
+            <Badge text="Chidi got paid ₦100,000" bgColor="bg-brightYellow" textColor="text-black " rotate="-15deg" />
+            <Badge text="Amaka got paid ₦400,000" bg="bg-oliveGreen" textColor=" text-white" rotate="5deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4  ${loaded ? 'animate-drop-1' : 'opacity-0'}`}>
-            <Badge text="Kemi got paid ₦600,000" bgColor="bg-brightYellow" textColor="text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="-10deg" />
-            <Badge text="Seyi got paid ₦250,000" bgColor="bg-oliveGreen" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="15deg" />
-            <Badge text="Tunde got paid ₦150,000" bgColor="bg-black" textColor="text-white text-[12px] md:text-[18px] lg:text[20px]" rotate="-5deg" />
-            <Badge text="Femi got paid ₦350,000" bgColor="bg-lightGrayish" textColor="hidden md:flex text-black text-[12px] md:text-[18px] lg:text[20px]" rotate="10deg" />
+            <Badge text="Kemi got paid ₦600,000" bgColor="bg-brightYellow" textColor="text-black " rotate="-10deg" />
+            <Badge text="Seyi got paid ₦250,000" bgColor="bg-oliveGreen" textColor="text-white " rotate="15deg" />
+            <Badge text="Tunde got paid ₦150,000" bgColor="bg-black" textColor="text-white " rotate="-5deg" />
+            <Badge text="Femi got paid ₦350,000" bgColor="bg-lightGrayish" textColor="hidden md:flex text-black " rotate="10deg" />
           </div>
         </div>
       </div>
@@ -115,7 +110,7 @@ export default function Home() {
 
 const Badge = ({ text, bgColor, textColor, rotate }) => {
   return (
-    <div className={`badge ${bgColor} ${textColor} py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 my-2 rounded-lg shadow-lg opacity-0`} style={{ transform: `rotate(${rotate})` }}>
+    <div className={`badge ${bgColor} ${textColor} py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 my-2 rounded-lg shadow-lg opacity-0 text-[12px] md:text-[18px] lg:text[20px]`} style={{ transform: `rotate(${rotate})` }}>
       {text}
     </div>
   );
