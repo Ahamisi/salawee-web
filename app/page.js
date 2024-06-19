@@ -35,7 +35,7 @@ export default function Home() {
       </Head>
       <header className="flex flex-wrap justify-between items-center w-full p-4 md:p-6">
         <div className="text-2xl md:text-3xl font-bold">
-          <div className="h-[80px] lg:h-[150px]">
+          <div className="h-[80px] lg:h-[100px] xl:h-[150px]">
             {darkMode ? <img src="/logo-dark.svg" alt="Salawee" className="h-full" /> : <img src="/logo-light.svg" alt="Salawee" className="h-full" />}
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Home() {
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-2' : 'opacity-0'}`}>
             <Badge text="Ngozi got paid ₦300,000" bgColor="bg-black" textColor="text-white " rotate="10deg" />
             <Badge text="Chidi got paid ₦100,000" bgColor="bg-brightYellow" textColor="text-black " rotate="-15deg" />
-            <Badge text="Amaka got paid ₦400,000" bg="bg-oliveGreen" textColor=" text-white" rotate="5deg" />
+            <Badge text="Amaka got paid ₦450,000" bgColor="bg-oliveGreen" textColor="text-white " rotate="15deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4  ${loaded ? 'animate-drop-1' : 'opacity-0'}`}>
             <Badge text="Kemi got paid ₦600,000" bgColor="bg-brightYellow" textColor="text-black " rotate="-10deg" />
