@@ -35,31 +35,31 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Salawee",
-        "url": "https://www.salawee.com",
-        "logo": "https://www.salawee.com/logo.svg",
-        "sameAs": [
-          "https://www.facebook.com/mysalawee",
-          "https://www.twitter.com/mysalawee",
-          "https://www.linkedin.com/company/mysalawee"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+2348080957681",
-          "contactType": "Customer Service",
-          "areaServed": "Worldwide",
-          "availableLanguage": "English"
-        }
-      })
-    }}
-  />
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Salawee",
+                "url": "https://www.salawee.com",
+                "logo": "https://www.salawee.com/logo.svg",
+                "sameAs": [
+                  "https://www.facebook.com/mysalawee",
+                  "https://www.twitter.com/mysalawee",
+                  "https://www.linkedin.com/company/mysalawee"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+2348080957681",
+                  "contactType": "Customer Service",
+                  "areaServed": "Worldwide",
+                  "availableLanguage": "English"
+                }
+              })
+            }}
+      />
       </Head>
-      <NextSeo
+      {/* <NextSeo
         title="Salawee - Salary Management and Financial Intelligence for Everyone"
         description="Salawee’s innovative AI-powered system automates salary disbursement, provides personalized spending tips, and offers intelligent financial planning. Easily manage your finances and achieve greater financial stability with Salawee."
         openGraph={{
@@ -76,7 +76,7 @@ export default function Home() {
           ],
           site_name: 'Salawee',
         }}
-      />
+      /> */}
       <header className="flex flex-wrap justify-between items-center w-full p-4 md:p-6">
         <div className="text-2xl md:text-3xl font-bold">
           <div className="h-[80px] lg:h-[100px] xl:h-[150px]">
@@ -105,7 +105,7 @@ export default function Home() {
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold">
         AI-Powered Salary Management <br/> and Intelligent Financial Planning
         </h1>
-        <p className="text-base md:text-lg lg:text-xl mt-4 lg:w-[70%]">
+        <p className="text-base md:text-lg lg:text-xl mt-4 lg:w-[0%]">
          With Salawee, your employees can easily manage their finances, optimize their budgets, and achieve enhanced financial stability.
         </p>
         <div className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
