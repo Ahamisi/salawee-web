@@ -3,6 +3,8 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
+import { NextSeo } from 'next-seo';
+
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -29,10 +31,52 @@ export default function Home() {
   return (
     <div className={`${darkMode ? 'bg-black text-white' : 'bg-white text-black'} min-h-screen flex flex-col items-center`}>
       <Head>
-        <title>Salawee - Get Paid Instantly</title>
+        <title>Salawee - Salary Management and Financial Intelligence for Everyone</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Salawee",
+        "url": "https://www.salawee.com",
+        "logo": "https://www.salawee.com/logo.svg",
+        "sameAs": [
+          "https://www.facebook.com/mysalawee",
+          "https://www.twitter.com/mysalawee",
+          "https://www.linkedin.com/company/mysalawee"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+2348080957681",
+          "contactType": "Customer Service",
+          "areaServed": "Worldwide",
+          "availableLanguage": "English"
+        }
+      })
+    }}
+  />
       </Head>
+      <NextSeo
+        title="Salawee - Salary Management and Financial Intelligence for Everyone"
+        description="Salawee’s innovative AI-powered system automates salary disbursement, provides personalized spending tips, and offers intelligent financial planning. Easily manage your finances and achieve greater financial stability with Salawee."
+        openGraph={{
+          url: 'https://www.salawee.com',
+          title: 'Salawee - Salary Management and Financial Intelligence for Everyone',
+          description: 'Salawee’s innovative AI-powered system automates salary disbursement, provides personalized spending tips, and offers intelligent financial planning.',
+          images: [
+            {
+              url: 'https://www.salawee.com/logo.svg',
+              width: 800,
+              height: 600,
+              alt: 'Salawee Logo',
+            },
+          ],
+          site_name: 'Salawee',
+        }}
+      />
       <header className="flex flex-wrap justify-between items-center w-full p-4 md:p-6">
         <div className="text-2xl md:text-3xl font-bold">
           <div className="h-[80px] lg:h-[100px] xl:h-[150px]">
@@ -59,10 +103,10 @@ export default function Home() {
       </header>
       <main className="text-center mt-8 md:mt-16 flex-1 flex flex-col items-center px-4">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold">
-          Experience Instant Payments Seamlessly
+        AI-Powered Salary Management <br/> and Intelligent Financial Planning
         </h1>
-        <p className="text-base md:text-lg lg:text-xl mt-4">
-          Join Salawee and transform the way you handle transactions. Fast, reliable, and designed for your success.
+        <p className="text-base md:text-lg lg:text-xl mt-4 lg:w-[70%]">
+         With Salawee, your employees can easily manage their finances, optimize their budgets, and achieve enhanced financial stability.
         </p>
         <div className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           {/* <button className="bg-black text-white py-2 px-4 md:py-3 md:px-6 rounded-full flex items-center space-x-2 hover:bg-gray-800" data-tf-popup="01J0QMNVXNAJM9DXD86DPT2R35">
@@ -85,22 +129,22 @@ export default function Home() {
       <div className="relative w-full h-64 flex justify-center items-end mb-16 px-4">
         <div className="badges-container relative w-full h-full">
           <div className={`flex justify-center mt-4 ${loaded ? 'animate-drop-4' : 'opacity-0'}`}>
-            <Badge text="Chinwe got paid ₦500,000" bgColor="bg-black" textColor="text-white " rotate="-10deg" />
+            <Badge text="Chinwe got paid ₦500k" bgColor="bg-black" textColor="text-white " rotate="-10deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-3' : 'opacity-0'}`}>
-            <Badge text="Bola got paid ₦200,000" bgColor="bg-black" textColor="text-white " rotate="15deg" />
-            <Badge text="Ade got paid ₦150,000" bgColor="bg-lightGrayish" textColor="text-black " rotate="-5deg" />
+            <Badge text="Mwangi got paid 30KES" bgColor="bg-black" textColor="text-white " rotate="15deg" />
+            <Badge text="Ade got paid ₦150k" bgColor="bg-lightGrayish" textColor="text-black " rotate="-5deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4 ${loaded ? 'animate-drop-2' : 'opacity-0'}`}>
-            <Badge text="Ngozi got paid ₦300,000" bgColor="bg-black" textColor="text-white " rotate="10deg" />
-            <Badge text="Chidi got paid ₦100,000" bgColor="bg-brightYellow" textColor="text-black " rotate="-15deg" />
-            <Badge text="Amaka got paid ₦450,000" bgColor="bg-oliveGreen" textColor="text-white " rotate="15deg" />
+            <Badge text="Ngozi got paid ₦300k" bgColor="bg-black" textColor="text-white " rotate="10deg" />
+            <Badge text="Abena got paid  GH₵4654" bgColor="bg-brightYellow" textColor="text-black " rotate="-15deg" />
+            <Badge text="Amaka got paid ₦450k" bgColor="bg-oliveGreen" textColor="text-white " rotate="15deg" />
           </div>
           <div className={`flex justify-center space-x-1 md:space-x-2 lg:space-x-4 mt-4  ${loaded ? 'animate-drop-1' : 'opacity-0'}`}>
-            <Badge text="Kemi got paid ₦600,000" bgColor="bg-brightYellow" textColor="text-black " rotate="-10deg" />
-            <Badge text="Seyi got paid ₦250,000" bgColor="bg-oliveGreen" textColor="text-white " rotate="15deg" />
-            <Badge text="Tunde got paid ₦150,000" bgColor="bg-black" textColor="text-white " rotate="-5deg" />
-            <Badge text="Femi got paid ₦350,000" bgColor="bg-lightGrayish" textColor="hidden md:flex text-black " rotate="10deg" />
+            <Badge text="Thabo got paid ZAR 550k" bgColor="bg-brightYellow" textColor="text-black " rotate="-10deg" />
+            <Badge text="Seyi got paid ₦250k" bgColor="bg-oliveGreen" textColor="text-white " rotate="15deg" />
+            <Badge text="Kwame got paid  GH₵5000" bgColor="bg-black" textColor="text-white " rotate="-5deg" />
+            <Badge text="Femi got paid ₦350k" bgColor="bg-lightGrayish" textColor="hidden md:flex text-black " rotate="10deg" />
           </div>
         </div>
       </div>
