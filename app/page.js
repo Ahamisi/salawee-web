@@ -79,7 +79,7 @@ export default function Home() {
       /> */}
       <header className="flex flex-wrap justify-between items-center w-full p-4 md:p-6">
         <div className="text-2xl md:text-3xl font-bold">
-          <div className="h-[80px] lg:h-[100px] xl:h-[150px]">
+          <div className="h-[80px] lg:h-[100px] xl:h-[100px]">
             {darkMode ? <img src="/logo-dark.svg" alt="Salawee" className="h-full" /> : <img src="/logo-light.svg" alt="Salawee" className="h-full" />}
           </div>
         </div>
@@ -98,14 +98,14 @@ export default function Home() {
             }
           </button>
           <span className="hidden md:inline">contact@salawee.com</span>
-          <button className="bg-black text-white py-2 px-3 md:px-4 rounded hover:bg-gray-800">Sign In</button>
+          <a href="https://salaweeapp.netlify.app" className="bg-black text-white py-2 px-3 md:px-4 rounded hover:bg-gray-800">Sign In</a>
         </div>
       </header>
       <main className="text-center mt-8 md:mt-16 flex-1 flex flex-col items-center px-4">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold">
         AI-Powered Salary Management <br/> and Intelligent Financial Planning
         </h1>
-        <p className="text-base md:text-lg lg:text-xl mt-4 lg:w-[0%]">
+        <p className="text-base md:text-lg lg:text-xl mt-4 lg:w-[100%]">
          With Salawee, your employees can easily manage their finances, optimize their budgets, and achieve enhanced financial stability.
         </p>
         <div className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
